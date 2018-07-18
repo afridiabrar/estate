@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/my-code.css">
+    <link rel="shortcut icon" type="image/x-icon" href="images/circle-icon.png">
+    <link rel="stylesheet" type="text/css" href="css/washington.css">
+    <link rel="stylesheet" type="text/css" href="css/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="css/">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">-->
+    <script src="js/webfont.js"></script>
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="login2">
+<section class="w-section mobile-wrapper page3">
+    <div class="page-content" id="main-stack">
+        <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1"
+             data-easing="ease-out-quint" data-no-scroll="1">
+            <div class="w-container">
+                <nav class="w-nav-menu nav-menu" role="navigation">
+                    <div class="nav-menu-header">
+                        <div class="col-md-12">
+                            <img src="images/logo.png" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                    <a class="w-clearfix w-inline-block nav-menu-link" href="contact.html" data-load="1">
+                        <div class="icon-list-menu">
+                            <div class="icon ion-ios-contact"></div>
+                        </div>
+                        <div class="nav-menu-titles">Contact</div>
+                    </a>
+                    <a class="w-clearfix w-inline-block nav-menu-link" href="calender.html" data-load="1">
+                        <div class="icon-list-menu">
+                            <div class="icon ion-calendar"></div>
+                        </div>
+                        <div class="nav-menu-titles">Calender</div>
+                    </a>
+                    <a class="w-clearfix w-inline-block nav-menu-link" href="settings.html" data-load="1">
+                        <div class="icon-list-menu">
+                            <div class="icon ion-ios-gear-outline"></div>
+                        </div>
+                        <div class="nav-menu-titles">Profile Settings</div>
+                    </a>
+                    <a class="w-clearfix w-inline-block nav-menu-link" href="folder.html" data-load="1">
+                        <div class="icon-list-menu">
+                            <div class="icon ion-ios-folder"></div>
+                        </div>
+                        <div class="nav-menu-titles">Folder</div>
+                    </a>
+                    <a class="w-clearfix w-inline-block nav-menu-link" href="password.html" data-load="1">
+                        <div class="icon-list-menu">
+                            <div class="icon ion-ios-locked"></div>
+                        </div>
+                        <div class="nav-menu-titles">Change Password</div>
+                    </a>
+
+                    <a class="w-clearfix w-inline-block nav-menu-link last" href="terms.html" data-load="1">
+                        <div class="icon-list-menu">
+                            <div class="icon ion-ios-bookmarks-outline"></div>
+                        </div>
+                        <div class="nav-menu-titles">Terms and Conditions</div>
+                    </a>
+                    <a class="w-clearfix w-inline-block" onclick="logout()" data-load="1">
+                        <div class="icon-list-menu">
+                            <div class="icon ion-ios-locked-outline"></div>
+                        </div>
+                        <div class="nav-menu-titles">Logout</div>
+                    </a>
+                    <div class="separator-bottom"></div>
+                    <div class="separator-bottom"></div>
+                    <div class="separator-bottom"></div>
+                </nav>
+                <div class="wrapper-mask" data-ix="menu-mask"></div>
+                <div class="navbar-title">Contacts</div>
+                <div class="w-nav-button navbar-button left" id="menu-button" data-ix="hide-navbar-icons">
+                    <div class="navbar-button-icon home-icon">
+                        <div class="bar-home-icon"></div>
+                        <div class="bar-home-icon"></div>
+                        <div class="bar-home-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="body">
+            <div class="col-xs-12">
+                <!--<div class="text-centered"><h3>Apex Miami Reality</h3></div>-->
+                <div class="col-xs-4 col-xs-offset-4">
+                    <div class="image2">
+                        <img src="images/circle-icon.png" alt="" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="bottom-section">
+                    <a href="Add_Calender.html" class="action-button" style="margin-bottom: 20px">Add New Event</a>
+                    <div id='calendarr'></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content loading-mask" id="new-stack">
+        <div class="loading-icon">
+            <div class="navbar-button-icon icon ion-load-d"></div>
+        </div>
+    </div>
+    <div class="shadow-layer"></div>
+</section>
+<div class="conf"></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/fullcalendar.min.js"></script>
+<script type="text/javascript" src="js/framework.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        var data = window.localStorage.getItem("user");
+        if (data != null) {
+            if (data['message'] == 'Error') {
+                window.location.href = "login.html";
+            } else {
+                var link = "http://localhost/estate/";
+            }
+        }else{
+            window.location.href = "login.html";
+        }
+    });
+    function changefolder(hash) {
+        console.log(hash);
+    }
+    function logout() {
+        window.localStorage.removeItem("user");
+        window.location.reload();
+    }
+    function AddCalender() {
+        var name = $("[name=name]").val();
+        var notess = $("[name=notes]").val();
+        var due_date = $("[name=due_date]").val();
+        var link = "http://devlabx.com/estate/index.php/api/";
+        var data = window.localStorage.getItem("user");
+        var rr = JSON.parse(data);
+        user_id = rr[0]['id']
+        $.post(link + "AddCalender", {
+            user_id: user_id,
+            name: name,
+            notess: notess,
+            due_date: due_date
+        }, function (e) {
+            if (e == 'success') {
+                alert("Added Data");
+                window.location.href = "calender.html";
+
+            }else{
+                alert("Some Error Occured");
+            }
+        });
+    }
+</script>
+<script>
+
+    $(document).ready(function () {
+        "use strict"; // Start of use strict
+        /* initialize the external events
+         -----------------------------------------------------------------*/
+        $('#external-events .fc-event').each(function () {
+            // store data so the calendar knows to render an event upon drop
+            $(this).data('event', {
+                title: $.trim($(this).text()), // use the element's text as the event title
+                stick: true // maintain when user navigates (see docs on the renderEvent method)
+            });
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 999,
+                revert: true, // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+        });
+        /* initialize the calendar
+         -----------------------------------------------------------------*/
+        //  var d = new Date();
+        // var n = d.getFullYear();
+        var month = new Array();
+        month[0] = "January";
+        month[1] = "February";
+        month[2] = "March";
+        month[3] = "April";
+        month[4] = "May";
+        month[5] = "June";
+        month[6] = "July";
+        month[7] = "August";
+        month[8] = "September";
+        month[9] = "October";
+        month[10] = "November";
+        month[11] = "December";
+        var d = new Date();
+        var y = d.getFullYear();
+        var n = month[d.getMonth()];
+        var data = window.localStorage.getItem("user");
+        var clData;
+        var json = JSON.parse(data);
+        var id = json[0]['id'];
+      //  var link = "http://localhost/estate/api/";
+       var link = "http://devlabx.com/estate/index.php/api/";
+        $.post(link + "calender", {id: id}, function (e) {
+            console.log(e);
+            var clData = JSON.parse(e);
+            $('#calendarr').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,listMonth'
+                },
+                defaultDate: y + '-' + n,
+                navLinks: true, // can click day/week names to navigate views
+                businessHours: true, // display business hours
+                editable: true,
+                droppable: true, // this allows things to be dropped onto the calendar
+                drop: function () {
+                    // is the "remove after drop" checkbox checked?
+                    if ($('#drop-remove').is(':checked')) {
+                        // if so, remove the element from the "Draggable Events" list
+                        $(this).remove();
+                    }
+                },
+                events: clData
+            });
+            //console.log(data);
+        });
+
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Sign Up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/framework.css">
+    <link rel="stylesheet" type="text/css" href="css/washington.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/my-code.css">
+    <script src="js/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {
+                families: ["Montserrat:400,700"]
+            }
+        });
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-65113119-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="images/circle-icon.png">
+    <link rel="apple-touch-icon" href="images/logoStandford32.ico">
+    <link href="css/ionicons.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="login2" style="overflow-x: hidden;">
+<section class="w-section mobile-wrapper">
+    <div class="page-content" id="main-stack" data-scroll="0">
+        <div class="w-nav navbar" data-collapse="all" data-animation="over-left" data-duration="400" data-contain="1"
+             data-easing="ease-out-quint" data-no-scroll="1">
+            <div class="w-container">
+                <div class="wrapper-mask" data-ix="menu-mask"></div>
+                <div class="navbar-title">Sign Up</div>
+                <a class="w-inline-block navbar-button" href="login.html" data-load="1">
+                    <div class="navbar-button-icon icon ion-ios-close-empty"></div>
+                </a>
+            </div>
+        </div>
+        <div class="body">
+            <div class="col-xs-12">
+                <!--<div class="text-centered"><h3>Apex Miami Reality</h3></div>-->
+                <div class="col-xs-4 col-xs-offset-4">
+                    <div class="image2" style="margin-bottom: 0">
+                        <img src="images/circle-icon.png" alt="" class="img-responsive">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="bottom-section">
+                    <div class="w-form" style="margin-top: 30px">
+                        <div>
+                            <label class="label-form">First Name</label>
+                            <input class="w-input input-form" placeholder="Johny" type="text" name="firstname" required="required">
+                            <div class="separator-fields"></div>
+                        </div>
+                        <div>
+                            <label class="label-form">Last Name</label>
+                            <input class="w-input input-form" placeholder="Sin" type="text" name="lastname" required="required">
+                            <div class="separator-fields"></div>
+                        </div>
+                        <div>
+                            <label class="label-form">EMAIL</label>
+                            <input class="w-input input-form" placeholder="xx@gmail.com" type="email" name="email" required="required">
+                            <div class="separator-fields"></div>
+                        </div>
+                        <div>
+                            <label class="label-form">PASSWORD</label>
+                            <input class="w-input input-form" placeholder="password" type="password" name="password" required="required">
+                            <div class="separator-fields"></div>
+                        </div>
+                        <div class="separator-button-input"></div>
+                        <input class="w-button action-button" type="button" onclick="register()" value="Sign Up" data-wait="Please wait...">
+                        <div class="separator-button"></div>
+                        <a class="link-upper" href="login.html" data-load="1">ALREADY HAVE AN ACCOUNT? <strong
+                                class="b-link">SIGN IN</strong>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-content loading-mask" id="new-stack">
+        <div class="loading-icon">
+            <div class="navbar-button-icon icon ion-load-d"></div>
+        </div>
+    </div>
+    <div class="shadow-layer"></div>
+</section>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/framework.js"></script>
+<script type="text/javascript" src="js/bootstrap/bootstrap.min.js"></script>
+<script src="js/placeholders.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/alertify.min.js"></script>
+<!-- CSS -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/alertify.min.css"/>
+<!-- Default theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/default.min.css"/>
+<!-- Semantic UI theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/semantic.min.css"/>
+<!-- Bootstrap theme -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
+
+<script>
+//    var linkToServer = "http://localhost/estate/";
+var linkToServer = "http://devlabx.com/estate/index.php/";
+    function register() {
+        var first = $("[name=firstname]").val();
+        var second = $("[name=lastname]").val();
+        var email = $("[name=email]").val();
+        var pwd = $("[name=password]").val();
+        if ((first != '' && second != '' && email != '' && pwd != '')) {
+            $.post(linkToServer + "api/register", {fname: first, lname: second, email: email, password: pwd}, function (resp) {
+                if (resp == 'success') {
+                    alert('Welcome');
+                    console.log(resp);
+                    setTimeout(function () {
+                       // window.location= "/login.html";
+                        window.location.replace("login.html");
+                       // window.location.reload();
+                    },3000);
+                } else {
+                    //alertify.error('Email Already Exit Try Different');
+                alert('Email Already Exit Try Different');
+                }
+            });
+        } else {
+            alert('Fill * All Values');
+            //alertify.error('Fill * All Values');
+        }
+    }
+</script>
+</body>
+</html>

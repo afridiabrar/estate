@@ -1,0 +1,109 @@
+<?php
+header("Access-Control-Allow-Origin: *");
+
+class Api extends CI_Controller
+{
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    public function index()
+    {
+        $data = array('error' => "Undefined function");
+        echo json_encode($data);
+    }
+    public function register()
+    {
+        $x = $_POST;
+        $check = $this->data->fetch('members', array('email' => $x['email']));
+        if (!empty($check)) {
+            echo "found";
+        } else {
+            $this->data->insert('members', $x);
+            echo "success";
+        }
+        //echo json_encode($xx);
+    }
+    public function profile()
+    {
+        $x = $_POST;
+        $xx = array('fname' => $x['fname'], 'lname' => $x['lname'], 'email' => $x['email']);
+        $this->data->update(array('id' => $x['id']), 'members', $xx);
+    }
+    public function changePassword()
+    {
+        $data = $_POST;
+        $check = $this->data->fetch("members", array('id' => $data['id']));
+        if ($data['password'] == $check[0]['password']) {
+            if ($data['password1'] == $data['password2']) {
+                $this->data->update(array("id" => $check[0]['id']), "members", array("password" => $data['password1']));
+                $check['message'] = "Change";
+                echo json_encode($check);
+            } else {
+                $check['message'] = "Mismatch";
+                echo json_encode($check);
+            }
+        } else {
+            $check['message'] = "Incorrect";
+            echo json_encode($check);
+        }
+    }
+    public function login()
+    {
+        $x = $_POST;
+      //  $x = file_get_contents("php://input");
+       //$xx = json_encode($x);
+        $check = $this->data->fetch('members',$x);
+        if (!empty($check)) {
+            echo "Success";
+            //echo json_encode($check);
+        } else {
+        //var_dump($check);
+            echo "Error";
+//            echo json_encode($check);
+        }
+    }
+    public function test(){
+      $data = $this->data->fetch('contacts',array('folders'=>'contacts'));
+        $new = array();
+        foreach($data as $k=>$val){
+            $new['draw'] = 0;
+            $new['recordsTotal'] = count($data);
+            $new['recordsFiltered'] = count($data);
+            $new['data'][$k]['first_name'] = $val['FirstName']." ".$val['LastName'];
+            $new['data'][$k]['last_name'] = $val['Phone'];
+           // $new['data'][$k]['position'] = $val['Email'];
+            $new['data'][$k]['office'] = $val['Address'];
+            //$new['data'][$k]['start_date'] = $val['Country'];
+           // $new['data'][$k]['salary'] = $val['Folder'];
+        }
+        echo json_encode($new);
+    }
+
+    public function getFolder(){
+        $data = $this->data->myquery("SELECT * FROM `followups` WHERE `member_id` = '0' AND `contact_id` = '0'");
+        echo json_encode($data);
+    }
+    public function getsinglefolder(){
+            $x =  $_POST;
+            $hash = explode('=',$x['hashfolder']);
+            $data = $this->data->fetch('followups',array('folder'=>$hash[0],'member_id'=>$x['id']));
+              foreach($data as $k => $v){
+                  $x = $this->data->fetch('contacts',array('id'=>$v['contact_id']));
+                  $data[$k]['contact'] = (!empty($x)) ? $x : array();
+                  foreach($x as $as){
+                      echo "<tr>";
+                      echo "<td>".$as['FirstName']."</td>";
+                      echo "<td>".$as['Phone']."</td>";
+                      echo "<td>".$as['Address']."</td>";
+                      echo "<td><button type='button' class='btn btn-success'>View</button> </td>";
+                      echo "</tr>";
+                  }
+
+              }
+
+
+
+    }
+
+}
