@@ -2312,7 +2312,8 @@ Framework.require("ix").init([{
     }
 }]), document.addEventListener("touchstart", function () {
 }, !0), $(function () {
-    var t = $(".page-content").attr("data-splash"), e = $(".page-content").attr("data-redirect");
+    var t = $(".page-content").attr("data-splash");
+    var e = $(".page-content").attr("data-redirect");
     t > 0 && ($(".loading-mask").addClass("stop-loading"), setTimeout(function () {
         a(e)
     }, t)), $("#submit-form").submit(function (t) {
@@ -2321,7 +2322,7 @@ Framework.require("ix").init([{
     }), navigator.userAgent.match(/Mobi/) && $(".mobile-wrapper").width("100%");
     var s = function () {
         var t = $(window).height();
-        // $(".mobile-wrapper").height(t)
+        $(".mobile-wrapper").height(t)
     };
     s(), $(window).resize(function () {
         s()
@@ -2343,7 +2344,9 @@ Framework.require("ix").init([{
             $(".loading-mask").removeClass("stop-loading")
         }, 1), $.get(t, function (e) {
             setTimeout(function () {
-                window.history.pushState({html: e, pageTitle: ""}, "", t), $("body").html(e), window.scrollTo(0, 0)
+                window.history.pushState({html: e, pageTitle: ""}, "", t), $("body").html(e), window.scrollTo(0, 0);
+                window.location.href = t;
+                //console.log(e);
             }, 1)
         })
     };
