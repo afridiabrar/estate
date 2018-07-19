@@ -116,7 +116,20 @@
 <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
 
 <script>
-//    var linkToServer = "http://localhost/estate/";
+//var linkToServer = "http://localhost/estate/";
+$(document).ready(function(){
+    var data = window.localStorage.getItem("user");
+    data = JSON.parse(data);
+    if(data != null){
+        if(data['message'] == 'Error'){
+            window.location.href = "login.html";
+        }
+        else if(data['message'] == "Success"){
+            window.location.href = "settings.html";
+        }
+    }
+});
+
 var linkToServer = "http://devlabx.com/estate/index.php/";
     function register() {
         var first = $("[name=firstname]").val();
@@ -126,7 +139,7 @@ var linkToServer = "http://devlabx.com/estate/index.php/";
         if ((first != '' && second != '' && email != '' && pwd != '')) {
             $.post(linkToServer + "api/register", {fname: first, lname: second, email: email, password: pwd}, function (resp) {
                 if (resp == 'success') {
-                    alert('Welcome');
+                    alert('Now you can login!');
                     console.log(resp);
                     setTimeout(function () {
                        // window.location= "/login.html";

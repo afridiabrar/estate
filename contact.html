@@ -162,8 +162,8 @@
             if(data['message'] == 'Error'){
                 window.location.href = "login.html";
             }else{
-                 var link = "http://localhost/estate/";
-//                var link = "http://devlabx.com/estate/index.php/";
+//                 var link = "http://localhost/estate/";
+               var link = "http://devlabx.com/estate/index.php/";
                 $('#tabletest > .table-responsive').load(link + "api/test22");
                 //executes code below when user click on pagination links
                 $("#tabletest > .table-responsive").on( "click", ".pagination a", function (e){

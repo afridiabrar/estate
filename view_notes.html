@@ -197,6 +197,7 @@
         if(hashid != ""){
             $.post(link+"AddNotes",{hashid:hashid,note_title:note_title,note:note,id:user_id}, function (e) {
                 if(e == 'Sucess'){
+                    alert('Note Added');
                     window.location.reload();
                 }
             });
