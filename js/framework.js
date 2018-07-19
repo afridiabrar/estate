@@ -2322,7 +2322,7 @@ Framework.require("ix").init([{
     }), navigator.userAgent.match(/Mobi/) && $(".mobile-wrapper").width("100%");
     var s = function () {
         var t = $(window).height();
-        $(".mobile-wrapper").height(t)
+        // $(".mobile-wrapper").height(t)
     };
     s(), $(window).resize(function () {
         s()
